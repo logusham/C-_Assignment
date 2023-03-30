@@ -1,0 +1,29 @@
+﻿@model List<EmployeDto>
+
+@{
+    ViewData["Title"] = "Fetching Data from WebAPI";
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">Name</th>
+            <th class="text-center">Hours Worked</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var row in Model)
+        {
+            <tr>
+                <td class="text-center">@row.EmployeeName</td>
+                @if (row.TotalWorkingHour < 100)
+                {
+                    <td class="text-center" style="background-color:lightcoral">@row.TotalWorkingHour</td>
+                }
+                else
+                {
+                    <td class="text-center">@row.TotalWorkingHour</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
